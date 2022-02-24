@@ -8,15 +8,12 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.OIConstants;
-import frc.robot.commands.DriveCommands.Drive;
 import frc.robot.commands.TurretCommands.shoot;
-import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Limelight;
 import frc.robot.subsystems.Turret;
 
 /** Add your docs here. */
 public class RobotContainer {
-    private Drivetrain m_drivetrain;
     private Limelight m_limelight;
     private Turret m_turret;
     private Joystick buttonStick;
@@ -25,7 +22,6 @@ public class RobotContainer {
 
     public RobotContainer(){
         // Init classes and subsystems
-        m_drivetrain = new Drivetrain();
         m_limelight = new Limelight();
         m_turret = new Turret();
 
@@ -33,10 +29,7 @@ public class RobotContainer {
         buttonStick = new Joystick(OIConstants.buttonStickID);
         rightJoystick = new Joystick(OIConstants.rightStickID);
         lefJoystick = new Joystick(OIConstants.leftStickID);
-
-        // set drive commands
-        m_drivetrain.setDefaultCommand(new Drive(m_drivetrain, ()->lefJoystick.getY(), ()->rightJoystick.getY()));
-
+        
         // configure buttons
         configureButtonBindings();
     }

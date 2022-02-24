@@ -31,7 +31,7 @@ public class Turret extends SubsystemBase {
   private final Servo actuator1;
   private final Servo actuator2;
 
-  private final linearInterpolator angleInterpolator; 
+  private final LinearInterpolator angleInterpolator; 
 
   public Turret() {
     topTowerMotor = new WPI_TalonFX(MotorConstants.topTowerID);
@@ -39,7 +39,7 @@ public class Turret extends SubsystemBase {
     intakeMotor = new WPI_TalonFX(MotorConstants.intakeMotorID);
     turretMotor = new WPI_TalonFX(MotorConstants.shootMotorID);
 
-    angleInterpolator = new linearInterpolator(TurretConstants.angleTable);
+    angleInterpolator = new LinearInterpolator(TurretConstants.angleTable);
 
     sensor = new DigitalInput(MotorConstants.towerSensorID);
 

@@ -18,7 +18,7 @@ import java.util.Arrays;
  * 
  * double y = lt.getInterpolatedValue(1.5); // returns 15.25
  */
-public class linearInterpolator {
+public class LinearInterpolator {
 
     // https://therevisionist.org/software-engineering/java/tutorials/passing-2d-arrays/
     private double[][] table;
@@ -29,7 +29,7 @@ public class linearInterpolator {
      * 
      * @param data, a table of x -> y mappings to be interpolated
      */
-    public linearInterpolator(double[][] data) {
+    public LinearInterpolator(double[][] data) {
         build_table(data);
     }
 

@@ -18,7 +18,7 @@ public class Limelight extends SubsystemBase {
   NetworkTableEntry ty = table.getEntry("ty");
   NetworkTableEntry ta = table.getEntry("ta");
   NetworkTableEntry thor = table.getEntry("thor");
-  linearInterpolator distanceInterpolator = new linearInterpolator(LimelightConstants.distanceTable);
+  LinearInterpolator distanceInterpolator = new LinearInterpolator(LimelightConstants.distanceTable);
   public Limelight() {}
 
   /** Calculates distance in feet
