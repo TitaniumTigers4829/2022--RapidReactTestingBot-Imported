@@ -96,11 +96,8 @@ public class Constants {
          * Climb motor positions in encoder values
          * FIXME: random
          */
-        public static int [] motorPositions = {
-            14820,
-            87415,
-            84120
-        };
+        public static int secondBarPos = 471289;
+        public static int finalBarPos = 5741240;
     }
 
     public static double robotWithMeters = -0.0;
