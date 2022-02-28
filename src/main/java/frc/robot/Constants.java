@@ -96,6 +96,7 @@ public class Constants {
          * Climb motor positions in encoder values
          * FIXME: random
          */
+        public static int firstBarPos = 48124;
         public static int secondBarPos = 471289;
         public static int finalBarPos = 5741240;
     }

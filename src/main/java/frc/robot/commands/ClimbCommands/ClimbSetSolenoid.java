@@ -4,45 +4,39 @@
 
 package frc.robot.commands.ClimbCommands;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Climb;
 
-public class ClimbSetPos extends CommandBase {
-  
-  public int motorPos;
-  private final Climb climb;
-
-  /** Creates a new ClimbSetPos. */
-  public ClimbSetPos(Climb climb, int motorPos) {
+public class ClimbSetSolenoid extends CommandBase {
+  /** Creates a new ClimbSolenoidSet. */
+  private Climb climb;
+  private boolean extended;
+  private boolean done = false;
+  public ClimbSetSolenoid(Climb climb, boolean extended) {
     // Use addRequirements() here to declare subsystem dependencies.
     this.climb = climb;
-    this.motorPos = motorPos;
+    this.extended = extended;
     addRequirements(climb);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    climb.setPos(motorPos);
-    SmartDashboard.putBoolean("Climb Pos Running", true);
+    climb.setSolenoids(extended);
+    done = true;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-    climb.setPos(motorPos);
-  }
+  public void execute() {}
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-    SmartDashboard.putBoolean("Climb Pos Running", false);
-  }
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return Math.abs(climb.getPosition() - motorPos) <= 10;
+    return done;
   }
 }
