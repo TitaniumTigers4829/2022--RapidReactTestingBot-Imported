@@ -5,35 +5,29 @@
 package frc.robot.commands.ClimbCommands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Climb;
 
-public class ClimbSetSolenoid extends CommandBase {
-  private Climb climb;
-  private boolean extended;
-  private boolean done = false;
-  /**
-   * Set climb solenoid
-   * @param climb instance of climb subsystem
-   * @param extended whether or not to extend the solenoid.
-   *  true = extended, false = retracted
-   */
-  public ClimbSetSolenoid(Climb climb, boolean extended) {
+public class delay extends CommandBase {
+  /** Creates a new delay. */
+  private int ms;
+  public delay(int ms) {
     // Use addRequirements() here to declare subsystem dependencies.
-    this.climb = climb;
-    this.extended = extended;
-    addRequirements(climb);
+    this.ms = ms;
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
-    climb.setSolenoids(extended);
-    done = true;
-  }
+  public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    try {
+      new Thread();
+      Thread.sleep(ms);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 
   // Called once the command ends or is interrupted.
   @Override
@@ -42,6 +36,6 @@ public class ClimbSetSolenoid extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return done;
+    return false;
   }
 }
