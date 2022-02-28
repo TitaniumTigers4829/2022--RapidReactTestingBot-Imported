@@ -30,7 +30,8 @@ public class Limelight extends SubsystemBase {
   }
 
   /**
-   * @return horizontal pixels to the targt, with a default value of 0
+   * Gets horizontal angle to target
+   * @return horizontal angle to the targt, with a default value of 0
    */
   public double pixelsToTarget(){
     return tx.getDouble(0.0);
@@ -47,6 +48,12 @@ public class Limelight extends SubsystemBase {
   public double calculateAngle(double distance){
     return distanceInterpolator.getInterpolatedValue(distance);
   }
+
+  /**
+   * get hood angle and distance
+   * plug this into fancy formula
+   * 
+   */
   
   @Override
   public void periodic() {
