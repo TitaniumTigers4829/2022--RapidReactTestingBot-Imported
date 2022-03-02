@@ -15,11 +15,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Climb extends SubsystemBase {
-  TalonFX leftClimbMotor = new TalonFX(0-9);
-  TalonFX rightClimbMotor = new TalonFX(0-9);
+  TalonFX leftClimbMotor = new TalonFX(1);
+  TalonFX rightClimbMotor = new TalonFX(13);
 
-  DoubleSolenoid leftSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0-9, 0-9);
-  DoubleSolenoid rightSolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 0-9, 0-9);
+  // DoubleSolenoid solenoid = new DoubleSolenoid(PneumaticsModuleType.REVPH, 14, 15);
   /**
    * Climb subsystem
    */
@@ -68,12 +67,10 @@ public class Climb extends SubsystemBase {
   public void setSolenoids(boolean extended){
     SmartDashboard.putBoolean("Climb Solenoids", extended);
     if (extended){
-      leftSolenoid.set(DoubleSolenoid.Value.kForward);
-      rightSolenoid.set(DoubleSolenoid.Value.kForward);
+     //solenoid.set(DoubleSolenoid.Value.kForward);
     }
     else{
-      leftSolenoid.set(DoubleSolenoid.Value.kReverse);
-      rightSolenoid.set(DoubleSolenoid.Value.kReverse);
+     //solenoid.set(DoubleSolenoid.Value.kReverse);
     }
   }
 
@@ -81,8 +78,20 @@ public class Climb extends SubsystemBase {
     return leftClimbMotor.getSelectedSensorPosition();
   }
 
+  public void setSpeed(double speed){
+    leftClimbMotor.set(ControlMode.PercentOutput, speed);
+    rightClimbMotor.set(ControlMode.PercentOutput, speed);
+  }
+
+  public void resetEncoders(){
+    leftClimbMotor.setSelectedSensorPosition(0);
+    rightClimbMotor.setSelectedSensorPosition(0);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("Climb Left Motor", leftClimbMotor.getSelectedSensorPosition());
+    SmartDashboard.putNumber("Climb Right Motor", rightClimbMotor.getSelectedSensorPosition());
   }
 }
