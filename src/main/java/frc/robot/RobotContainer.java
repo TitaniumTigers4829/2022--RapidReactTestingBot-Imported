@@ -7,14 +7,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.Constants.OIConstants;
-import frc.robot.commands.ClimbCommands.ManualForValues;
+import frc.robot.commands.ClimbCommands.Manual;
 import frc.robot.commands.ClimbCommands.ResetClimbPos;
 import frc.robot.subsystems.Climb;
-import frc.robot.commands.ClimbCommands.ManualForValues;
-// import frc.robot.commands.TurretCommands.shoot;
-import frc.robot.subsystems.Limelight;
-// import frc.robot.subsystems.Turret;
 
 /** Add your docs here. */
 public class RobotContainer {
@@ -39,7 +34,7 @@ public class RobotContainer {
         // lefJoystick = new Joystick(OIConstants.leftStickID);
         controller = new Joystick(0);
 
-        new JoystickButton(controller, 2).toggleWhenPressed(new ManualForValues(climb, ()->controller.getRawAxis(1)));
+        new JoystickButton(controller, 2).toggleWhenPressed(new Manual(climb, ()->controller.getRawAxis(1), ()->controller.getRawAxis(3)));
         new JoystickButton(controller, 1).whenPressed(new ResetClimbPos(climb));
 
         // configure buttons

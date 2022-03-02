@@ -9,14 +9,15 @@ import java.util.function.DoubleSupplier;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Climb;
 
-public class ManualForValues extends CommandBase {
+public class Manual extends CommandBase {
   private Climb climb;
-  private DoubleSupplier speed;
+  private DoubleSupplier leftSpeed, rightSpeed;
   /** Creates a new ManualForValues. */
-  public ManualForValues(Climb climb, DoubleSupplier speed) {
+  public Manual(Climb climb, DoubleSupplier leftSpeed, DoubleSupplier rightSpeed) {
     // Use addRequirements() here to declare subsystem dependencies.
     this.climb = climb;
-    this.speed = speed;
+    this.leftSpeed = leftSpeed;
+    this.rightSpeed = rightSpeed;
     addRequirements(climb);
   }
 
@@ -27,13 +28,15 @@ public class ManualForValues extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    climb.setSpeed(speed.getAsDouble());
+    climb.setLeftSpeed(leftSpeed.getAsDouble() / 4);
+    climb.setRightSpeed(rightSpeed.getAsDouble() / 4);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    climb.setSpeed(0);
+    climb.setLeftSpeed(0);
+    climb.setRightSpeed(0);
   }
 
   // Returns true when the command should end.
