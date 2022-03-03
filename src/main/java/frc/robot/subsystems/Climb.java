@@ -15,10 +15,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Climb extends SubsystemBase {
-  TalonFX leftClimbMotor = new TalonFX(1);
+  TalonFX leftClimbMotor = new TalonFX(12);
   TalonFX rightClimbMotor = new TalonFX(13);
 
-  // DoubleSolenoid solenoid = new DoubleSolenoid(PneumaticsModuleType.REVPH, 14, 15);
+  //DoubleSolenoid solenoid = new DoubleSolenoid(PneumaticsModuleType.REVPH, 14, 15);
+  //DoubleSolenoid solenoid = new DoubleSolenoid(PneumaticsModuleType.REVPH, 8, 9);
+
   /**
    * Climb subsystem
    */
@@ -64,15 +66,15 @@ public class Climb extends SubsystemBase {
     rightClimbMotor.set(ControlMode.PercentOutput, 0);
   }
 
-  public void setSolenoids(boolean extended){
-    SmartDashboard.putBoolean("Climb Solenoids", extended);
-    if (extended){
-     //solenoid.set(DoubleSolenoid.Value.kForward);
-    }
-    else{
-     //solenoid.set(DoubleSolenoid.Value.kReverse);
-    }
-  }
+  // public void setSolenoids(boolean extended){
+  //   SmartDashboard.putBoolean("Climb Solenoids", extended);
+  //   if (extended){
+  //    solenoid.set(DoubleSolenoid.Value.kForward);
+  //   }
+  //   else{
+  //    solenoid.set(DoubleSolenoid.Value.kReverse);
+  //   }
+  // }
 
   public double getPosition() {
     return leftClimbMotor.getSelectedSensorPosition();

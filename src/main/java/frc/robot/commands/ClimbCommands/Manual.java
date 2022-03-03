@@ -4,6 +4,7 @@
 
 package frc.robot.commands.ClimbCommands;
 
+import java.util.function.BooleanSupplier;
 import java.util.function.DoubleSupplier;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -12,12 +13,14 @@ import frc.robot.subsystems.Climb;
 public class Manual extends CommandBase {
   private Climb climb;
   private DoubleSupplier leftSpeed, rightSpeed;
+  private BooleanSupplier solenoids;
   /** Creates a new ManualForValues. */
-  public Manual(Climb climb, DoubleSupplier leftSpeed, DoubleSupplier rightSpeed) {
+  public Manual(Climb climb, DoubleSupplier leftSpeed, DoubleSupplier rightSpeed, BooleanSupplier solenoids) {
     // Use addRequirements() here to declare subsystem dependencies.
     this.climb = climb;
     this.leftSpeed = leftSpeed;
     this.rightSpeed = rightSpeed;
+    this.solenoids = solenoids;
     addRequirements(climb);
   }
 
@@ -28,8 +31,9 @@ public class Manual extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    climb.setLeftSpeed(leftSpeed.getAsDouble() / 4);
-    climb.setRightSpeed(rightSpeed.getAsDouble() / 4);
+    climb.setLeftSpeed(leftSpeed.getAsDouble());
+    climb.setRightSpeed(rightSpeed.getAsDouble());
+    //climb.setSolenoids(solenoids.getAsBoolean());
   }
 
   // Called once the command ends or is interrupted.

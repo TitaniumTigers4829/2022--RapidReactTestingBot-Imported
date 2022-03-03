@@ -7,6 +7,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.ClimbCommands.ClimbSetSolenoid;
 import frc.robot.commands.ClimbCommands.Manual;
 import frc.robot.commands.ClimbCommands.ResetClimbPos;
 import frc.robot.subsystems.Climb;
@@ -34,8 +35,9 @@ public class RobotContainer {
         // lefJoystick = new Joystick(OIConstants.leftStickID);
         controller = new Joystick(0);
 
-        new JoystickButton(controller, 2).toggleWhenPressed(new Manual(climb, ()->controller.getRawAxis(1), ()->controller.getRawAxis(3)));
+        new JoystickButton(controller, 2).toggleWhenPressed(new Manual(climb, ()->-controller.getRawAxis(1), ()->-controller.getRawAxis(3), ()->controller.getRawButton(8)));
         new JoystickButton(controller, 1).whenPressed(new ResetClimbPos(climb));
+        //new JoystickButton(controller, 4).toggleWhenPressed(new ClimbSetSolenoid(climb));
 
         // configure buttons
         configureButtonBindings();

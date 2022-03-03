@@ -9,26 +9,20 @@ import frc.robot.subsystems.Climb;
 
 public class ClimbSetSolenoid extends CommandBase {
   private Climb climb;
-  private boolean extended;
-  private boolean done = false;
   /**
    * Set climb solenoid
    * @param climb instance of climb subsystem
-   * @param extended whether or not to extend the solenoid.
-   *  true = extended, false = retracted
    */
-  public ClimbSetSolenoid(Climb climb, boolean extended) {
+  public ClimbSetSolenoid(Climb climb) {
     // Use addRequirements() here to declare subsystem dependencies.
     this.climb = climb;
-    this.extended = extended;
     addRequirements(climb);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    climb.setSolenoids(extended);
-    done = true;
+    //climb.setSolenoids(true);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -37,11 +31,13 @@ public class ClimbSetSolenoid extends CommandBase {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    //climb.setSolenoids(false);
+  }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return done;
+    return false;
   }
 }
