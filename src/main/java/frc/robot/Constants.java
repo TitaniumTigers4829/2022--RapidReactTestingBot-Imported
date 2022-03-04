@@ -26,6 +26,7 @@ public class Constants {
     }
 
     public static class TurretConstants{
+        /** angle to go to, extension */
         public static double [][] angleTable = {
             {4.0, 46.13},
             {5.0, 46.13},

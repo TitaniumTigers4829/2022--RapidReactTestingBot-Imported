@@ -25,8 +25,7 @@ public class Limelight extends SubsystemBase {
    * @return distance in feet
    */
   public double calculateDistance(){
-    double distance = ((LimelightConstants.targetHeight - LimelightConstants.cameraHeight) / Math.tan(LimelightConstants.cameraAngle + ty.getDouble(0.0)));
-    return distance;
+    return ((LimelightConstants.targetHeight - LimelightConstants.cameraHeight) / Math.tan(LimelightConstants.cameraAngle + ty.getDouble(0.0)));
   }
 
   /**
