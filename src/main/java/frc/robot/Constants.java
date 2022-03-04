@@ -16,6 +16,8 @@ public class Constants {
         public static int topTowerID = 0-9;
         public static int bottomTowerID = 0-9;
         public static int shootMotorID = 0-9;
+        public static int topBeltMotorID = 0-9;
+        public static int bottomBeltMotorID = 0-9;
 
         // sensors
         public static int towerSensorID = 0-9;

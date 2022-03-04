@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Servo;
@@ -21,8 +22,8 @@ when ball detected by photoelectric sensor, stop top tower
 public class Turret extends SubsystemBase {
     /** Creates a new Turret. */
     
-    private final WPI_TalonFX topTowerMotor;
-    private final WPI_TalonFX bottomTowerMotor;
+    private final WPI_TalonSRX topTowerMotor;
+    private final WPI_TalonSRX bottomTowerMotor;
     private final WPI_TalonFX intakeMotor;
     private final WPI_TalonFX turretMotor;
     
@@ -34,8 +35,8 @@ public class Turret extends SubsystemBase {
     private final LinearInterpolator angleInterpolator; 
     
     public Turret() {
-        topTowerMotor = new WPI_TalonFX(MotorConstants.topTowerID);
-        bottomTowerMotor = new WPI_TalonFX(MotorConstants.bottomTowerID);
+        topTowerMotor = new WPI_TalonSRX(MotorConstants.topTowerID);
+        bottomTowerMotor = new WPI_TalonSRX(MotorConstants.bottomTowerID);
         intakeMotor = new WPI_TalonFX(MotorConstants.intakeMotorID);
         turretMotor = new WPI_TalonFX(MotorConstants.shootMotorID);
         
