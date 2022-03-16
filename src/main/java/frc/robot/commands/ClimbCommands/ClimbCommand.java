@@ -19,6 +19,7 @@ public class ClimbCommand extends SequentialCommandGroup {
       // Reel into the bar
       new ClimbSetPos(climb, 0),
       // should be done with bar 1
+      // static hooks click
       // ----------------------------------------------------------------------------
       // extends a little
       new ClimbSetPos(climb, ClimbConstants.slightlyExtended),
@@ -31,6 +32,7 @@ public class ClimbCommand extends SequentialCommandGroup {
       // Retract climb
       new ClimbSetPos(climb, 0),
       // should be done with bar 2
+      // static hooks click
       // ----------------------------------------------------------------------------
       // extends a little
       new ClimbSetPos(climb, ClimbConstants.slightlyExtended),
@@ -43,6 +45,7 @@ public class ClimbCommand extends SequentialCommandGroup {
       // Retract climb
       new ClimbSetPos(climb, 0)
       // should be done with bar 3
+      
     );
   }
 }
