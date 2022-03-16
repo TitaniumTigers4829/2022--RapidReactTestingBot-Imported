@@ -18,8 +18,7 @@ public class Climb extends SubsystemBase {
   TalonFX leftClimbMotor = new TalonFX(12);
   TalonFX rightClimbMotor = new TalonFX(13);
 
-  //DoubleSolenoid solenoid = new DoubleSolenoid(PneumaticsModuleType.REVPH, 14, 15);
-  //DoubleSolenoid solenoid = new DoubleSolenoid(PneumaticsModuleType.REVPH, 8, 9);
+  DoubleSolenoid solenoid = new DoubleSolenoid(PneumaticsModuleType.REVPH, 14, 15);
 
   /**
    * Climb subsystem
@@ -38,24 +37,6 @@ public class Climb extends SubsystemBase {
     rightClimbMotor.config_kP(0, 0.2);
   }
 
-  // /**
-  //  * Climbs to the bar
-  //  * @param bar the bar to climb to... what did you think nerd
-  //  */
-  // public void climb(int bar){
-  //   int motorPos = ClimbConstants.motorPositions[bar - 2];
-
-  //   leftClimbMotor.set(ControlMode.MotionMagic, motorPos);
-  //   rightClimbMotor.set(ControlMode.MotionMagic, motorPos);
-  // }
-
-  /**
-   * plan:
-   * func motor pos
-   * func solenoid
-   * command to run all
-   */
-
   public void setPos(int pos){
     leftClimbMotor.set(ControlMode.MotionMagic, pos);
     rightClimbMotor.set(ControlMode.MotionMagic, pos);
@@ -66,15 +47,15 @@ public class Climb extends SubsystemBase {
     rightClimbMotor.set(ControlMode.PercentOutput, 0);
   }
 
-  // public void setSolenoids(boolean extended){
-  //   SmartDashboard.putBoolean("Climb Solenoids", extended);
-  //   if (extended){
-  //    solenoid.set(DoubleSolenoid.Value.kForward);
-  //   }
-  //   else{
-  //    solenoid.set(DoubleSolenoid.Value.kReverse);
-  //   }
-  // }
+  public void setSolenoids(boolean extended){
+    SmartDashboard.putBoolean("Climb Solenoids", extended);
+    if (extended){
+     solenoid.set(DoubleSolenoid.Value.kForward);
+    }
+    else{
+     solenoid.set(DoubleSolenoid.Value.kReverse);
+    }
+  }
 
   public double getPosition() {
     return leftClimbMotor.getSelectedSensorPosition();

@@ -49,6 +49,9 @@ public class Constants {
         public static int buttonStickID = 0;
         public static int rightStickID = 1;
         public static int leftStickID = 2;
+        public static int raiseTelescopingArmsButtonID = 0-9;
+        public static int startClimbButtonID = 0-9;
+
 
         // Limelight buttons
         public static int turnToTargetButtonID = 7;
@@ -102,6 +105,7 @@ public class Constants {
         public static int firstBarPos = 48124;
         public static int secondBarPos = 471289;
         public static int finalBarPos = 5741240;
+        public static int slightlyExtended = 0-9;
     }
 
     public static double robotWithMeters = -0.0;
