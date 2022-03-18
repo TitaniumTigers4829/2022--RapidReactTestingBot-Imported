@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.OIConstants;
 import frc.robot.commands.ClimbCommands.ClimbCommand;
 import frc.robot.commands.ClimbCommands.ClimbSetPos;
+import frc.robot.commands.ClimbCommands.Manual;
 import frc.robot.subsystems.Climb;
 
 /** Add your docs here. */
@@ -47,6 +48,8 @@ public class RobotContainer {
         // new JoystickButton(buttonStick, OIConstants.shootID).whileHeld(new shoot(m_limelight, m_turret));
         new JoystickButton(controller, OIConstants.raiseTelescopingArmsButtonID).whenPressed(new ClimbSetPos(climb, Constants.ClimbConstants.firstBarPos));
         new JoystickButton(controller, OIConstants.startClimbButtonID).whenPressed(new ClimbCommand(climb));
+        new JoystickButton(controller, OIConstants.manualControlButtonID).toggleWhenPressed(new Manual(climb, ()->-controller.getRawAxis(1), ()->-controller.getRawAxis(3), ()->false));
+        
     }
 
     public Command getAutonomousCommand(){

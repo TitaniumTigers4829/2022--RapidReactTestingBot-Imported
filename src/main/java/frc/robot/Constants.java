@@ -47,10 +47,9 @@ public class Constants {
 
     public static class OIConstants{
         public static int buttonStickID = 0;
-        public static int rightStickID = 1;
-        public static int leftStickID = 2;
-        public static int raiseTelescopingArmsButtonID = 0-9;
-        public static int startClimbButtonID = 0-9;
+        public static int raiseTelescopingArmsButtonID = 1;
+        public static int startClimbButtonID = 4;
+        public static int manualControlButtonID = 2;
 
 
         // Limelight buttons
