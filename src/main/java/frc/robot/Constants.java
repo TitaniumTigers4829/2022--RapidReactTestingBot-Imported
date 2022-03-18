@@ -12,12 +12,16 @@ public class Constants {
         public static int backLeftID = 0-9;
         public static int backRightID = 0-9;
 
-        public static int intakeMotorID = 0-9;
+        public static int leftFlyMotorID = 0-9;
+        public static int rightFlyMotorID = 0-9;
         public static int topTowerID = 0-9;
         public static int bottomTowerID = 0-9;
-        public static int shootMotorID = 0-9;
         public static int topBeltMotorID = 0-9;
         public static int bottomBeltMotorID = 0-9;
+
+        public static double PFlyDriveController = 0-9;
+        public static double IFlyDriveController = 0-9;
+        public static double DFlyDriveController = 0-9;
 
         // sensors
         public static int towerSensorID = 0-9;
