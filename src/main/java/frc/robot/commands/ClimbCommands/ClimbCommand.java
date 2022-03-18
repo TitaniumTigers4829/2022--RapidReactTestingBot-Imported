@@ -45,7 +45,7 @@ public class ClimbCommand extends SequentialCommandGroup {
       // Retract climb
       new ClimbSetPos(climb, 0)
       // should be done with bar 3
-      
+      // yay we finished climb
     );
   }
 }

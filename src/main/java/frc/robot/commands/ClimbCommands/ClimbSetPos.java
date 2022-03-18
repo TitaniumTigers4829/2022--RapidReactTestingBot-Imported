@@ -43,6 +43,7 @@ public class ClimbSetPos extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    SmartDashboard.putNumberArray("FInished encoder position", climb.getBothPositions());
     return Math.abs(climb.getPosition() - motorPos) <= 10;
   }
 }

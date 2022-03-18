@@ -61,6 +61,10 @@ public class Climb extends SubsystemBase {
     return leftClimbMotor.getSelectedSensorPosition();
   }
 
+  public double[] getBothPositions() {
+    return new double[] {leftClimbMotor.getSelectedSensorPosition(), rightClimbMotor.getSelectedSensorPosition()};
+  }
+
   public void setLeftSpeed(double speed){
     leftClimbMotor.set(ControlMode.PercentOutput, speed);
   }
